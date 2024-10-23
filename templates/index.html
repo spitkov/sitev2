@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="left-column">
+        <div class="card">
+            <section id="profile" class="centered-profile">
+                <img src="https://i.spitkov.hu/u/9PKR5J.png" alt="spitkov" class="profile-pic">
+                <h1 class="name" style="font-size: 2.5rem;">Spitkov</h1>
+                <div class="contact-info">
+                    <p>📧 Email: contact@spitkov.hu</p>
+                    <p>📱 Phone: +36305350131</p>
+                    <p>🎂 Birthday: Jul 20, 20??</p>
+                    <p>📍 Location: Hungary</p>
+                </div>
+            </section>
+        </div>
+
+        <div class="card">
+            <section id="discord-status">
+                <h2>🎮 Discord Status</h2>
+                <ul class="contacts-list"></ul>
+            </section>
+        </div>
+
+        <div class="card">
+            <section id="links">
+                <h2>🔗 Links</h2>
+                <ul>
+                    <li><a href="http://tomcat.spitkov.wtf" class="material-button">Tomcat</a></li>
+                    <li><a href="http://cdn.spitkov.hu" class="material-button">CDN</a></li>
+                </ul>
+            </section>
+        </div>
+    </div>
+
+    <div class="right-column">
+        <div class="card">
+            <section id="about">
+                <h2>👋 About Me</h2>
+                <p>Coding in Python, HTML, CSS and JS (mainly). I love trying out new languages, also I'm really into penetration testing, modding Android and (trying to) design UI/UX. When I'm not doing those, I'm probably watching yt. I'm always down to learn new stuff, especially in Linux and development.</p>
+                <p>I also have an unhealthy addiction to self-hosting all kinds of stuff some can be found under the "My Domains" tab.</p>
+            </section>
+        </div>
+
+        <div class="card">
+            <section id="what-im-doing">
+                <h2>🚀 What I'm Doing</h2>
+                <div class="activity">
+                    <h3>🖥️ Building simple apps</h3>
+                    <p>I like to build very simple full-stack apps in Python to solve problems that shouldn't really be a problem for me.</p>
+                    <p>(I can hardly call it full-stack because from the bottom of my heart I hate frontend and can't build any normal design.)</p>
+                </div>
+                <div class="activity">
+                    <h3>🔒 Pentesting</h3>
+                    <p>I really don't have a better idea for a title regarding how I love poking around with services and finding vulnerabilities in them on a very unprofessional level.</p>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+{% endblock %}

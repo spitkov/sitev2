@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}{{ title }} - spitkov's Blog{% endblock %}
+
+{% block content %}
+<div class="blog-navigation">
+    <a href="javascript:history.back()" class="back-button">🔙 Back</a>
+</div>
+<h1>{{ title }}</h1>
+{% if date %}
+    <p>Published on: {{ date }}</p>
+{% endif %}
+<div class="blog-content full-width">
+    {{ content|safe }}
+</div>
+{% endblock %}

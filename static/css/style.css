@@ -1,0 +1,554 @@
+:root {
+    --bg-color: #0d0d0d; /* Darker background color for the entire site */
+    --text-color: #f0f0f0;
+    --accent-color: #4a90e2;
+    --secondary-color: #2c2c2c;
+}
+
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    background-color: var(--bg-color); /* Use the new darker background */
+    color: var(--text-color);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    animation: fadeIn 0.5s ease-in-out; /* Fade in effect for page load */
+    cursor: none; /* Hide the default cursor globally */
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        filter: blur(5px); /* Start with a blur */
+    }
+    100% {
+        opacity: 1;
+        filter: blur(0); /* End with no blur */
+    }
+}
+
+/* Optional: Add a fade-out effect when navigating away */
+.fade-out {
+    animation: fadeOut 0.5s ease-in-out forwards; /* Adjust duration for slower fade-out */
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-in-out forwards; /* Adjust duration for slower fade-in */
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+        filter: blur(0); /* Start with no blur */
+    }
+    100% {
+        opacity: 0;
+        filter: blur(5px); /* End with a blur */
+    }
+}
+
+header {
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    padding: 1rem 0;
+    z-index: 1; /* Ensure it stays above the canvas */
+}
+
+.nav-container {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 1rem;
+}
+
+/* Navbar link hover effect */
+nav ul li a {
+    color: var(--text-color); /* Text color for links */
+    text-decoration: none; /* Remove underline */
+    padding: 5px 10px; /* Add padding for better spacing */
+    transition: background-color 0.3s ease; /* Smooth background transition */
+    border-radius: 5px; /* Rounded corners for hover effect */
+}
+
+nav ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Light background on hover */
+    color: var(--accent-color); /* Change text color on hover */
+}
+
+main {
+    max-width: 1600px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 2rem;
+    flex: 1;
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.left-column, .right-column {
+    width: 100%;
+    max-width: 100%;
+}
+
+@media (min-width: 1024px) {
+    .container {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    .left-column {
+        flex: 1;
+        max-width: 30%;
+    }
+
+    .right-column {
+        flex: 2;
+        max-width: 70%;
+    }
+}
+
+@media (min-width: 1600px) {
+    .left-column {
+        max-width: 25%;
+    }
+
+    .right-column {
+        max-width: 75%;
+    }
+}
+
+.profile-pic {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+    margin: 1rem auto;
+    border: 4px solid var(--accent-color);
+}
+
+.name {
+    font-size: 3rem;
+    text-align: center;
+    margin: 1rem 0;
+    color: var(--accent-color);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+h1, h2 {
+    color: var(--accent-color);
+}
+
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #7ab0ff;
+}
+
+footer {
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    padding: 1rem 0;
+    z-index: 1; /* Ensure it stays above the canvas */
+    text-align: center; /* Center the text */
+}
+
+.contacts-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.icon-box {
+    margin-right: 1rem;
+}
+
+.contact-info {
+    flex-grow: 1;
+}
+
+.contact-title {
+    font-weight: bold;
+    margin: 0;
+}
+
+.contact-link {
+    margin: 0;
+    color: var(--accent-color);
+}
+
+#links ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#links li {
+    margin-bottom: 0.5rem;
+}
+
+.contact-info p {
+    display: flex;
+    align-items: center;
+}
+
+.contact-info p::before {
+    margin-right: 0.5rem;
+}
+
+.centered-profile {
+    text-align: center;
+}
+
+.centered-profile .contact-info {
+    display: inline-block;
+    text-align: left;
+}
+
+/* New styles for centering Discord status and other sections */
+#discord-status, #domains, #links {
+    text-align: center;
+}
+
+#discord-status .contacts-list,
+#domains ul,
+#links ul {
+    display: inline-block;
+    text-align: left;
+}
+
+/* New styles for better horizontal space usage */
+.activity {
+    margin-bottom: 2rem;
+}
+
+.activity h3 {
+    margin-bottom: 0.5rem;
+}
+
+#bgCanvas {
+    position: fixed; /* Fix the canvas to the viewport */
+    top: 0;
+    left: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    z-index: -1; /* Send it to the back */
+}
+
+.card {
+    background: rgba(30, 30, 30, 0.8); /* Semi-transparent background for cards */
+    border-radius: 10px; /* Rounded corners */
+    padding: 20px; /* Padding inside the card */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5); /* Shadow for depth */
+    margin: 20px 0; /* Margin for spacing */
+    color: var(--text-color); /* Ensure text color is set to the defined text color */
+}
+
+.material-button {
+    background-color: var(--accent-color); /* Button background color */
+    color: #fff; /* Button text color */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px 15px; /* Padding for the button */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth background transition */
+    display: inline-block; /* Make it behave like a button */
+    text-align: center; /* Center text */
+}
+
+.material-button:hover {
+    background-color: #3a7d9a; /* Darker shade on hover */
+}
+
+/* Blog specific styles */
+.blog-content {
+    background-color: rgba(20, 20, 20, 0.95); /* Darker background for blog content */
+    padding: 20px; /* Padding around the blog content */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7); /* Shadow for depth */
+    margin: 20px 0; /* Margin for spacing */
+    color: var(--text-color); /* Text color */
+}
+
+code {
+    background-color: rgba(50, 50, 50, 0.8); /* Dark background for inline code */
+    color: #f0f0f0; /* Light text color for code */
+    padding: 2px 4px; /* Padding for inline code */
+    border-radius: 4px; /* Rounded corners for inline code */
+}
+
+pre {
+    background-color: rgba(50, 50, 50, 0.9); /* Dark background for block code */
+    color: #f0f0f0; /* Light text color for block code */
+    padding: 10px; /* Padding for block code */
+    border-radius: 4px; /* Rounded corners for block code */
+    overflow-x: auto; /* Allow horizontal scrolling for long lines */
+    white-space: pre-wrap; /* Wrap long lines */
+    margin: 10px 0; /* Margin for spacing */
+}
+
+h1, h2, h3 {
+    color: var(--accent-color); /* Accent color for headings */
+    margin-bottom: 10px; /* Space below headings */
+}
+
+p {
+    margin-bottom: 1rem; /* Space below paragraphs */
+}
+
+/* Additional styles for links in blog */
+.blog-content a {
+    color: var(--accent-color); /* Accent color for links */
+    text-decoration: underline; /* Underline links */
+}
+
+.blog-content a:hover {
+    color: #7ab0ff; /* Lighter color on hover */
+}
+
+.full-width {
+    width: 100%; /* Full width */
+    max-width: none; /* Remove any max-width constraints */
+    padding: 20px; /* Maintain padding for readability */
+    margin: 0; /* Remove margin to align with the container */
+}
+
+#discord-status {
+    width: 100%; /* Make the Discord status section full width */
+    max-width: 100%; /* Ensure it doesn't exceed the container width */
+    padding: 10px; /* Reduced padding for better spacing */
+    box-sizing: border-box; /* Include padding in width calculation */
+}
+
+.blog-navigation {
+    margin-bottom: 20px; /* Space below the navigation */
+}
+
+.back-button {
+    background-color: rgba(30, 30, 30, 0.8); /* Semi-transparent background */
+    color: var(--text-color); /* Text color */
+    padding: 10px 15px; /* Padding for the button */
+    border-radius: 5px; /* Rounded corners */
+    text-decoration: none; /* Remove underline */
+    transition: background-color 0.3s ease; /* Smooth background transition */
+}
+
+.back-button:hover {
+    background-color: rgba(50, 50, 50, 0.9); /* Darker on hover */
+}
+
+.transparent-card {
+    background: rgba(30, 30, 30, 0.7); /* Semi-transparent background */
+    border-radius: 10px; /* Rounded corners */
+    padding: 20px; /* Padding inside the card */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5); /* Shadow for depth */
+    margin: 10px 0; /* Margin for spacing */
+    transition: background 0.3s ease; /* Smooth background transition */
+}
+
+.transparent-card:hover {
+    background: rgba(50, 50, 50, 0.9); /* Darker on hover */
+}
+
+.transparent-card a {
+    color: var(--text-color); /* Text color for links */
+    text-decoration: none; /* Remove underline */
+}
+
+.custom-cursor {
+    position: fixed;
+    width: 15px; /* Size of the cursor circle */
+    height: 15px; /* Size of the cursor circle */
+    border-radius: 50%; /* Make it circular */
+    pointer-events: none; /* Prevent the cursor from interfering with mouse events */
+    z-index: 9999; /* Ensure it stays above other elements */
+    animation: rainbow 1.5s linear infinite; /* Rainbow animation */
+}
+
+.cursor {
+    position: fixed;
+    width: 10px; /* Size of the inner dot */
+    height: 10px; /* Size of the inner dot */
+    background-color: var(--accent-color); /* Color of the inner dot */
+    border-radius: 50%; /* Make it circular */
+    pointer-events: none; /* Prevent the cursor from interfering with mouse events */
+    transition: transform 0.1s ease; /* Smooth movement */
+    z-index: 9999; /* Ensure it stays above other elements */
+}
+
+.cursor-trail {
+    position: fixed;
+    width: 20px; /* Size of the outer circle */
+    height: 20px; /* Size of the outer circle */
+    border: 2px solid var(--accent-color); /* Border color */
+    border-radius: 50%; /* Make it circular */
+    pointer-events: none; /* Prevent the cursor from interfering with mouse events */
+    transition: transform 0.1s ease; /* Smooth movement */
+    z-index: 9998; /* Ensure it stays below the inner dot */
+    opacity: 0.5; /* Semi-transparent */
+}
+
+.button-hover {
+    cursor: none; /* Ensure the cursor is hidden over buttons */
+}
+
+.button-hover:hover .custom-cursor {
+    transform: scale(1.5); /* Scale up the cursor on hover */
+}
+
+/* Optional: Add hover effect to buttons */
+button, a {
+    cursor: none; /* Ensure the cursor is hidden over buttons and links */
+}
+
+.useful-stuff {
+    padding: 20px; /* Add padding around the entire useful stuff section */
+    text-align: left; /* Align text to the left */
+}
+
+.useful-content {
+    margin-bottom: 20px; /* Space between useful content sections */
+}
+
+.card {
+    background: rgba(30, 30, 30, 0.8); /* Semi-transparent background for cards */
+    border-radius: 10px; /* Rounded corners */
+    padding: 20px; /* Padding inside the card */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5); /* Shadow for depth */
+    margin: 20px 0; /* Margin for spacing */
+    color: var(--text-color); /* Ensure text color is set to the defined text color */
+}
+
+.card h3 {
+    margin: 0 0 10px; /* Space below the heading */
+}
+
+.card ul {
+    list-style-type: none; /* Remove bullet points */
+    padding: 0; /* Remove padding */
+    margin: 0; /* Remove margin */
+}
+
+.card ul li {
+    margin-bottom: 10px; /* Space between list items */
+}
+
+/* Ensure the cursor is hidden globally */
+body {
+    cursor: none; /* Hide the default cursor globally */
+}
+
+/* Ensure the cursor is hidden over buttons and links */
+button, a, .material-button {
+    cursor: none; /* Ensure the cursor is hidden over buttons and links */
+}
+
+/* Custom cursor styles */
+.custom-cursor {
+    position: fixed;
+    width: 15px; /* Size of the cursor circle */
+    height: 15px; /* Size of the cursor circle */
+    border-radius: 50%; /* Make it circular */
+    pointer-events: none; /* Prevent the cursor from interfering with mouse events */
+    z-index: 9999; /* Ensure it stays above other elements */
+    animation: rainbow 1.5s linear infinite; /* Rainbow animation */
+}
+
+h2 {
+    background: none; /* Remove any background */
+    color: var(--accent-color); /* Ensure text color is set */
+    padding: 0; /* Remove any padding if necessary */
+    margin: 0; /* Remove any margin if necessary */
+}
+
+@keyframes rainbow {
+    0% { background-color: red; }
+    14% { background-color: orange; }
+    28% { background-color: yellow; }
+    42% { background-color: green; }
+    57% { background-color: blue; }
+    71% { background-color: indigo; }
+    85% { background-color: violet; }
+    100% { background-color: red; }
+}
+
+html {
+    scroll-behavior: smooth; /* Enable smooth scrolling */
+}
+
+.loading-spinner {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 50px;
+    height: 50px;
+    border: 5px solid var(--accent-color);
+    border-top: 5px solid transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    z-index: 10000; /* Ensure it stays above other elements */
+    transform: translate(-50%, -50%); /* Center the spinner */
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.portfolio-content {
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Stack items vertically */
+    gap: 20px; /* Space between cards */
+    max-width: 800px; /* Limit the width for better readability */
+    margin: 0 auto; /* Center the portfolio content */
+}
+
+.card {
+    background: rgba(30, 30, 30, 0.8); /* Semi-transparent background for cards */
+    border-radius: 10px; /* Rounded corners */
+    padding: 20px; /* Padding inside the card */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5); /* Shadow for depth */
+    color: var(--text-color); /* Ensure text color is set to the defined text color */
+}
+
+.card h3 {
+    margin: 0 0 10px; /* Space below the heading */
+}
+
+.card ul {
+    list-style-type: none; /* Remove bullet points */
+    padding: 0; /* Remove padding */
+    margin: 0; /* Remove margin */
+}
+
+.card ul li {
+    margin-bottom: 10px; /* Space between list items */
+}
+

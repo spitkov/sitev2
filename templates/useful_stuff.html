@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}Useful Stuff - spitkov's Blog{% endblock %}
+
+{% block content %}
+<article class="useful-stuff" data-page="useful-stuff">
+    <header>
+        <h2 class="h2 article-title">Useful Stuff</h2>
+    </header>
+    <section class="useful-description">
+        <p>Here you can find a collection of useful stuff that I use.</p>
+        <br>
+    </section>
+
+    <div class="useful-content card">
+        <h3 class="h3 useful-item-title">Windows Activation</h3>
+        <br>
+        <p class="useful-item-description">With this simple script, you can activate Windows in mere seconds.</p>
+        <br>
+        <div class="button-container">
+            <div onclick="window.location.href='blog/activ.html'" class="material-button">Tutorial</div>
+            <div onclick="window.location.href='https://fileb.in/api/file/689cc38c-4857-4aee-a922-ccbd4e597e28/download'" class="material-button">Download the script</div>
+        </div>
+    </div>
+
+    <div class="separator"></div>
+
+    <div class="useful-content card">
+        <h3 class="h3 useful-item-title">VMWare Downloads</h3>
+        <br>
+        <p class="useful-item-description">VMWare got acquired by Broadcom and made it near impossible to find any downloads to it. Here you can find and download all the versions.</p>
+        <p class="useful-item-description">And even on this link, it's a hassle to find the correct version, and you have to get the exe from a tar archive, so I linked an unpacked exe too.</p>
+        <br>
+        <div class="button-container">
+            <div onclick="window.location.href='https://cdn.kifu.pro/VMware-workstation-17.5.2-23775571.exe'" class="material-button">Download Latest</div>
+            <div onclick="window.location.href='https://softwareupdate.vmware.com/cds/vmw-desktop/ws/'" class="material-button">Browse Repo</div>
+        </div>
+    </div>
+    <br>
+</article>
+{% endblock %}

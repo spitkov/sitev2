@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}spitkov - Portfolio{% endblock %}
+
+{% block content %}
+<h1>Portfolio</h1>
+<p>This is where you can showcase your projects and work.</p>
+
+<div class="portfolio-content">
+    <div class="card">
+        <h3>File Sharing Services</h3>
+        <ul>
+            <li><a href="https://fileb.in" class="material-button">Fileb.in (32GB max file limit)</a></li>
+            <li><a href="https://sxbin.gay" class="material-button">sxbin.gay (File sharing & URL shortening)</a></li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h3>Social Media</h3>
+        <ul>
+            <li><a href="https://techtalk.spitkov.hu" class="material-button">techtalk.spitkov.hu (Twitter for Tech)</a></li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h3>Collaborative Tools</h3>
+        <ul>
+            <li><a href="https://office.bence.lol" class="material-button">Cryptpad (Collaborative Online Office)</a></li>
+        </ul>
+    </div>
+</div>
+{% endblock %}
