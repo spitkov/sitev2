@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}Secret Files - spitkov{% endblock %}
+
+{% block content %}
+<div class="ow-listing">
+    <h1>Secret Files</h1>
+    <ul class="file-list">
+        {% for file in files %}
+            <li class="file-item">
+                {% if file.type and file.type.startswith('image/') %}
+                    <img src="{{ file.url }}" alt="{{ file.name }}" class="file-preview">
+                {% elif file.type == 'video/mp4' %}
+                    <video controls class="file-preview">
+                        <source src="{{ file.url }}" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                {% endif %}
+                <a href="{{ file.url }}" class="file-link">{{ file.name }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

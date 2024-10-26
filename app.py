@@ -1,9 +1,10 @@
-from flask import Flask, render_template, send_from_directory, abort
+from flask import Flask, render_template, send_from_directory, abort, url_for
 import os
 import markdown
 from datetime import datetime
 import requests
 import time
+import mimetypes
 
 app = Flask(__name__)
 
@@ -100,6 +101,26 @@ def favicon():
 @app.route('/bg')
 def background():
     return render_template('background.html')
+
+@app.route('/ow')
+def ow_listing():
+    ow_folder = os.path.join(app.root_path, 'ow')
+    files = []
+    for filename in os.listdir(ow_folder):
+        file_path = os.path.join(ow_folder, filename)
+        if os.path.isfile(file_path):
+            mime_type, _ = mimetypes.guess_type(filename)
+            files.append({
+                'name': filename,
+                'type': mime_type,
+                'url': url_for('serve_ow_file', filename=filename)
+            })
+    return render_template('ow_listing.html', files=files)
+
+@app.route('/ow/<path:filename>')
+def serve_ow_file(filename):
+    ow_folder = os.path.join(app.root_path, 'ow')
+    return send_from_directory(ow_folder, filename)
 
 if __name__ == '__main__':
     app.run(debug=True)
