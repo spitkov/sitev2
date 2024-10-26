@@ -1,7 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const loadingSpinner = document.getElementById('loading');
-    loadingSpinner.style.display = 'block'; // Show loading spinner on page load
-
     // Create the custom cursor dot
     const cursorDot = document.createElement('div');
     cursorDot.classList.add('custom-cursor');
@@ -27,18 +24,15 @@ document.addEventListener('DOMContentLoaded', () => {
     let previousData = null;
 
     function getDiscordStatus() {
-        loadingSpinner.style.display = 'block'; // Show loading spinner
-        const apiUrl = "/discord-status";  // Change to your server endpoint
+        const apiUrl = "/activity";
         fetchData(apiUrl)
             .then((data) => {
-                loadingSpinner.style.display = 'none'; // Hide loading spinner
                 if (data.success && JSON.stringify(data) !== JSON.stringify(previousData)) {
                     updateDiscordStatus(data);
                     previousData = data;
                 }
             })
             .catch((error) => {
-                loadingSpinner.style.display = 'none'; // Hide loading spinner
                 console.error("Error:", error);
             });
     }

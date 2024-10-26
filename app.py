@@ -57,8 +57,8 @@ def blog_post(post_name):
     except FileNotFoundError:
         abort(404)
 
-@app.route('/discord-status')
-def discord_status():
+@app.route('/activity')
+def activity():
     global discord_status_cache, last_fetched_time
 
     current_time = time.time()
