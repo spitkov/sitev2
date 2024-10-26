@@ -133,10 +133,10 @@ main {
 }
 
 .profile-pic {
-    width: 100px; /* Reduced from 150px */
-    height: 100px; /* Reduced from 150px */
+    width: 150px; /* Increased from 100px */
+    height: 150px; /* Increased from 100px */
     border-radius: 50%;
-    margin-bottom: 0.5rem; /* Reduced from 1rem */
+    margin-bottom: 1rem; /* Increased from 0.5rem for better spacing */
 }
 
 .name {
