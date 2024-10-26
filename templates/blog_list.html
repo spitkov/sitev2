@@ -3,19 +3,19 @@
 {% block title %}spitkov - Blog{% endblock %}
 
 {% block content %}
-<h1>Blog Posts</h1>
-<ul>
-    {% for post in blog_posts %}
-        <li>
-            <div class="card transparent-card">
-                <a href="{{ url_for('blog_post', post_name=post.filename) }}">
-                    <h3>{{ post.title }}</h3>
+<div class="blog-list">
+    <h1>Blog Posts</h1>
+    <ul>
+        {% for post in blog_posts %}
+            <li class="blog-post-item">
+                <a href="{{ url_for('blog_post', post_name=post.filename) }}" class="blog-post-link">
+                    <div class="blog-post-title">{{ post.title }}</div>
                     {% if post.date %}
-                        <p>Published on: {{ post.date.strftime('%B %d, %Y') }}</p>
+                        <div class="blog-post-date">{{ post.date.strftime('%B %d, %Y') }}</div>
                     {% endif %}
                 </a>
-            </div>
-        </li>
-    {% endfor %}
-</ul>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
 {% endblock %}
